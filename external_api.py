@@ -53,14 +53,4 @@ def search_products_by_name(name: str, page_size: int = 5) -> list:
         "search_terms": name,
         "search_simple": 1,
         "json": 1,
-        "page_size": page_size,
-    }
-    try:
-        resp = requests.get(url, params=params, timeout=DEFAULT_TIMEOUT, headers=DEFAULT_HEADERS)
-        resp.raise_for_status()
-    except requests.RequestException as exc:
-        raise ExternalAPIError(str(exc)) from exc
-
-    data = resp.json()
-    products = data.get("products", [])[:page_size]
-    return [_normalize(p) for p in products]
+        "page_s
