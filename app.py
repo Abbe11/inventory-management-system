@@ -188,4 +188,4 @@ def health():
 
 if __name__ == "__main__":
     init_db()
-    ap
+    app.run(debug=True)
